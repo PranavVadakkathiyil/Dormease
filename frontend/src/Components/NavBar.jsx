@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { SiHomebridge } from "react-icons/si";
 import { MdOutlineAddHomeWork } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
@@ -13,11 +13,13 @@ import { setUserDetails } from "../store/userSlice";
 import SummaryApi from "../common";
 import { FaRegCircleUser } from "react-icons/fa6";
 import ROLE from "../common/role";
+import Context from "../context";
 
 const NavBar = () => {
   const [menuDisplay, setMenuDisplay] = useState(true);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+  //const context = useContext(context)
   console.log(menuDisplay);
   const user = useSelector((state) => state?.user?.user);
   //console.log("userHeader",user.user.user)
@@ -40,9 +42,10 @@ const NavBar = () => {
   };
 
   console.log("user?.name", user?.name);
+  console.log("count", Context?.cartProductCount);
   return (
     <nav>
-      <div className="flex items-center justify-around p-3">
+      <div className="flex items-center justify-around p-3 ">
         <Link to="/">
           <div className="flex items-center gap-1 cursor-pointer">
             <SiHomebridge className="text-5xl" />
@@ -60,23 +63,34 @@ const NavBar = () => {
             Pods
           </p>
         </div>
-        <div className="flex items-center gap-2  p-3 cursor-pointer sm:border ">
+        {user?.role === ROLE.ADMIN ? (
+          <div></div>
+        ) : (
+          <div className="">
+            <Link to="/addproperty" className="flex items-center gap-2  p-3 cursor-pointer sm:border ">
+              <MdOutlineAddHomeWork className="text-3xl transition ease-in-out delay-100  hover:-translate-y-1  duration-300 sm:block hidden" />
+              <p className="text-small font-normal sm:block hidden">
+                Add Your Property
+              </p>
+            </Link>
+          </div>
+        )}
+        {/*<div className="flex items-center gap-2  p-3 cursor-pointer sm:border ">
           <MdOutlineAddHomeWork className="text-3xl transition ease-in-out delay-100  hover:-translate-y-1  duration-300 sm:block hidden" />
           <p className="text-small font-normal sm:block hidden">
             Add Your Property
           </p>
-        </div>
+        </div>*/}
 
-        <div className="sm:flex hidden">
-          {/*<p>{user?.name}</p>*/}
-
+        <Link to="/cart">
           <div className="sm:flex hidden">
-            <FaHeart className="text-2xl cursor-pointer sm:block hidden" />
-            <p className="bg-black text-white text-[0.6rem] w-[14px] h-[14px] rounded-full grid place-items-center translate-y-[-5px] translate-x-[-1px]">
-              2
-            </p>
+            <div className="sm:flex hidden">
+              <button className="text-1xl cursor-pointer sm:block hidden border-2 p-2 rounded-full hover:text-white hover:bg-black">
+                View Selected
+              </button>
+            </div>
           </div>
-        </div>
+        </Link>
         <div className="relative flex justify-center">
           <div className=" cursor-pointer ">
             {user?._id && (
@@ -95,17 +109,14 @@ const NavBar = () => {
             <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded">
               <nav>
                 {user?.role === ROLE.ADMIN && (
-                  
                   <Link
                     to={"/admin-pannel"}
-                    className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2"
+                    className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2  "
                     onClick={() => setMenuDisplay((preve) => !preve)}
                   >
                     Admin Panel
                   </Link>
                 )}
-
-               
               </nav>
             </div>
           )}

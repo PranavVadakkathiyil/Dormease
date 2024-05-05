@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { BiSolidOffer } from "react-icons/bi";
 import { IoMdCall } from "react-icons/io";
@@ -6,6 +6,8 @@ import { IoMdCall } from "react-icons/io";
 import { IoLocation } from "react-icons/io5";
 
 const Search = () => {
+  
+  
   return (
     <div>
       <div className="main">
@@ -20,6 +22,7 @@ const Search = () => {
               id=""
               placeholder="Malppuram,Kerala,India"
               className=" w-full rounded-full outline-none pl-6"
+              
             />
             <button>
               <FaLocationCrosshairs className="text-2xl" />

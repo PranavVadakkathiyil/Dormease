@@ -6,6 +6,7 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import ROLE from '../common/role';
 import Footer from '../Components/Footer'
+import Aside from '../Components/Aside';
 const AdminPannel = () => {
     const user = useSelector(state => state?.user?.user)
     const navigate = useNavigate()
@@ -39,15 +40,15 @@ const AdminPannel = () => {
                  {/***navigation */}       
                 <div>   
                     <nav className='grid p-4'>
-                        <Link to={"all-users"} className='px-2 py-1 hover:bg-slate-100'>All Users</Link>
+                        {/*<Link to={"all-users"} className='px-2 py-1 hover:bg-slate-100'>All Users</Link>*/}
                         <Link to={"all-products"} className='px-2 py-1 hover:bg-slate-100'>All product</Link>
                     </nav>
                 </div>  
         </aside>
 
         <main className='w-full h-full p-2'>
-        <Outlet/> 
-
+        <Aside/> 
+ 
         </main>
         
     </div>

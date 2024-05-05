@@ -40,9 +40,7 @@ const AllUsers = () => {
 
   return (
     <div className='bg-white pb-4'>
-      <Link to='/admin-pannel'>
-      <button className='border bg-black p-2 rounded-lg text-white mt-2 mb-2'>Back To Pannel</button>
-      </Link>
+      
         <table className='w-full userTable '>
             <thead>
                 <tr className='bg-black text-white '>
@@ -58,14 +56,14 @@ const AllUsers = () => {
                 {
                     allUser.map((el,index) => {
                         return(
-                            <tr className='border'>
-                                <td>{index+1}</td>
+                            <tr className='border '>
+                                <td >{index+1}</td>
                                 <td>{el?.name}</td>
                                 <td>{el?.email}</td>
                                 <td>{el?.role}</td>
                                 <td>{moment(el?.createdAt).format('LL')}</td>
                                 <td>
-                                    <button className='bg-green-100 p-2 rounded-full cursor-pointer hover:bg-green-500 hover:text-white' 
+                                    <button className='hover:bg-black p-2 rounded-full cursor-pointer bg-white border hover:text-white' 
                                     onClick={()=>{
                                         setUpdateUserDetails(el)
                                         setOpenUpdateRole(true)

@@ -62,13 +62,13 @@ const login = () => {
     
   return (
     <section id='login'>
-        <div className='mx-auto container p-4 '>
+        <div className='mx-auto container p-4 mt-8'>
 
             <div className='bg-white p-5 w-full max-w-sm mx-auto border mt-6'>
-                    <div className='w-20 h-20 mx-auto'>
+                    {/*<div className='w-20 h-20 mx-auto'>
                         <img src='' alt='login icons'/>
-                    </div>
-
+                    </div>*/}
+                    <h2 className='flex items-center justify-center font-semibold text-2xl'>Login</h2>
                     <form className='pt-6 flex flex-col gap-2 ' onSubmit={handleSubmit}>
                         <div className='grid'>
                             <label>Email : </label>
@@ -116,7 +116,7 @@ const login = () => {
 
                     </form>
 
-                    <p className='my-5'>Don't have account ? <Link to={"/signup"} className=' text-black hover:text-black hover:underline'>Sign up</Link></p>
+                    {/*<p className='my-5'>Don't have account ? <Link to={"/signup"} className=' text-black hover:text-black hover:underline'>Sign up</Link></p>*/}
             </div>
 
 

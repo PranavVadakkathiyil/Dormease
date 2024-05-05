@@ -30,18 +30,18 @@ const SignUp = () => {
     });
   };
 
-  const handleUploadPic = async (e) => {
-    const file = e.target.files[0];
+  //const handleUploadPic = async (e) => {
+  //  const file = e.target.files[0];
 
-    const imagePic = await imageTobase64(file);
+    //const imagePic = await imageTobase64(file);
 
-    setData((preve) => {
-      return {
-        ...preve,
-        profilePic: imagePic,
-      };
-    });
-  };
+    //setData((preve) => {
+    //  return {
+    //    ...preve,
+    //    profilePic: imagePic,
+    //  };
+    //});
+  //};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,7 +77,9 @@ const SignUp = () => {
     <section id="signup">
       <div className="mx-auto container p-4">
         <div className="bg-white p-5 w-full max-w-sm mx-auto border mt-6">
-          <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
+        <h2 className='flex items-center justify-center font-semibold text-2xl'>SignUp</h2>
+
+          {/*<div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
             <div>
               <img src="" alt="login icons" />
             </div>
@@ -93,7 +95,7 @@ const SignUp = () => {
                 />
               </label>
             </form>
-          </div>
+          </div>*/}
 
           <form className="pt-6 flex flex-col gap-2" onSubmit={handleSubmit}>
             <div className="grid">
